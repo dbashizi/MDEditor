@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-US" ng-app="MDEditorApp">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://cdn.jsdelivr.net/markdown-it/6.0.5/markdown-it.min.js"></script>
+<script src="md-editor.js"></script>
+<link href="md-editor.css" rel="stylesheet" type="text/css"/>
+<body ng-controller="EditorController">
+<!--
+{{! changing the mustache delimiter so it doesn't conflict with  }}
+{{! the default angularjs delimeters - https://mustache.github.io/mustache.5.html for more info  }}
+{{=<% %>=}}
+-->
+
+<div id="main-title-div">
+	<h1>Welcome to the test editor</h1>
+	This is a test to see if I can easily have a Markdown text editor inside of a simple web page
+	<div>
+		<textarea rows="10" cols="80" ng-model="testContent">
+		</textarea>
+	</div>
+</div>
+
+<div>
+		<button ng-click="renderText()">Preview Formatted Text</button>
+</div>
+
+<div ng-bind-html="formattedText">
+</div>
+
+</body>
+</html>
